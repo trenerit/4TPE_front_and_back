@@ -1,0 +1,24 @@
+@if(error) {
+  <p class="error">Brak uytkowników w bazie danych</p>
+}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Login</th>
+      <th scope="col">Czy admin?</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(user of tabUsers; track $index) {
+        <tr>
+          <th>{{user.id}}</th>
+          <td>{{user.name}}</td>
+          <td>{{user.login}}</td>
+          <td>@if(!user.admin) {nie} @else {tak}</td>
+        </tr>
+    }
+  </tbody>
+</table>
